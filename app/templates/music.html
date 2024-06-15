@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Music{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="my-4">Music</h2>
+    {% for link in music_links %}
+    <div class="music-link">
+        <h3>{{ link.title }}</h3>
+        <p>{{ link.description }}</p>
+        {% if 'soundcloud.com' in link.url %}
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url={{ link.url | urlencode }}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+        {% elif 'youtube.com' in link.url %}
+        <iframe width="560" height="315" src="{{ link.url }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        {% endif %}
+    </div>
+    <hr>
+    {% endfor %}
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            {% if pagination.page > 1 %}
+            <li class="page-item">
+                <a class="page-link" href="{{ url_for('main.music', page=pagination.page - 1) }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% endif %}
+            {% for page_num in range(1, pagination.pages + 1) %}
+            <li class="page-item {% if page_num == pagination.page %}active{% endif %}">
+                <a class="page-link" href="{{ url_for('main.music', page=page_num) }}">{{ page_num }}</a>
+            </li>
+            {% endfor %}
+            {% if pagination.page < pagination.pages %}
+            <li class="page-item">
+                <a class="page-link" href="{{ url_for('main.music', page=pagination.page + 1) }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+{% endblock %}

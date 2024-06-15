@@ -15,6 +15,10 @@ def load_post_content(filename):
             return file.read()
     return None
 
+def load_music_links():
+    with open(os.path.join('app', 'static', 'data', 'music_links.json')) as file:
+        return json.load(file)
+
 @main.route('/')
 def index():
     return render_template('index.html')
@@ -50,7 +54,7 @@ def works():
     with open(os.path.join('app', 'static', 'data', 'projects_data_works.json')) as file:
         projects = json.load(file)
     page = request.args.get('page', 1, type=int)
-    per_page = 6 # number of projects per page
+    per_page = 6  # number of projects per page
     total = len(projects)
     projects = projects[(page - 1) * per_page: page * per_page]
     pagination = {
@@ -64,3 +68,18 @@ def works():
 @main.route('/contact')
 def contact():
     return render_template('contact.html')
+
+@main.route('/music')
+def music():
+    page = request.args.get('page', 1, type=int)
+    music_links = load_music_links()
+    per_page = 4
+    total = len(music_links)
+    paginated_music_links = music_links[(page - 1) * per_page: page * per_page]
+    pagination = {
+        'total': total,
+        'page': page,
+        'per_page': per_page,
+        'pages': (total + per_page - 1) // per_page,
+    }
+    return render_template('music.html', music_links=paginated_music_links, pagination=pagination)
