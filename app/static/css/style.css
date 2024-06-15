@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.header-image {
+    background-image: url('/static/images/header-image.png');
+    background-size: cover;
+    background-position: center;
+    height: 200px; /* Ajusta este valor según sea necesario */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.nav-link {
+    color: #ffffff !important;
+}
+
+.jumbotron {
+    background-color: #ffffff;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    border-radius: .3rem;
+}
+
+footer {
+    background-color: #343a40;
+    color: #fff;
+}
