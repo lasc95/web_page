@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="my-4">{{ post.title }}</h2>
+    <img src="{{ url_for('static', filename='images/' + post.image) }}" alt="{{ post.title }}" class="post-content-image">
+    <div>{{ content | safe }}</div>
+    <p class="post-meta">Posted on {{ post.date_posted }}</p>
+</div>
+{% endblock %}

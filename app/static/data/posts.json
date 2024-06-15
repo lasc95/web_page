@@ -1,0 +1,10 @@
+[
+    {
+        "id": 1,
+        "title": "Goals",
+        "summary": "This is a brief introduction to the first post.",
+        "date_posted": "2024-06-15",
+        "file": "post1.md",
+        "image": "post1.png"
+    }
+]

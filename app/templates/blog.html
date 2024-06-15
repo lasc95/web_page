@@ -3,6 +3,26 @@
 {% block title %}Blog{% endblock %}
 
 {% block content %}
-<h2>This is my blog</h2>
-<p>Esta es la página principal de mi sitio web minimalista.</p>
+<div class="container">
+    <h2 class="my-4">Blog</h2>
+    {% for post in posts %}
+    <div class="post-preview">
+        <a href="{{ url_for('main.post', post_id=post.id) }}">
+            <img src="{{ url_for('static', filename='images/' + post.image) }}" alt="{{ post.title }}" class="post-preview-image">
+            <h3 class="post-title">{{ post.title }}</h3>
+            <p class="post-content">{{ post.summary }}</p>
+        </a>
+        <p class="post-meta">Posted on {{ post.date_posted }}</p>
+    </div>
+    <hr>
+    {% endfor %}
+    <div class="pagination justify-content-center">
+        {% if pagination.page > 1 %}
+        <a class="btn btn-primary" href="{{ url_for('main.blog', page=pagination.page - 1) }}">Previous</a>
+        {% endif %}
+        {% if pagination.page < pagination.pages %}
+        <a class="btn btn-primary" href="{{ url_for('main.blog', page=pagination.page + 1) }}">Next</a>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}
