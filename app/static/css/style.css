@@ -1,4 +1,3 @@
-
 html, body {
     height: 100%;
     margin: 0;
@@ -7,18 +6,15 @@ html, body {
     background-color: #F5F5DC;
 }
 
-
 .main-container {
     min-height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-
 .content-wrap {
     flex: 1;
 }
-
 
 .footer {
     background-color: #343a40;
@@ -53,4 +49,41 @@ html, body {
     padding: 2rem 1rem;
     margin-bottom: 2rem;
     border-radius: .3rem;
+}
+
+/* Estilos para las tarjetas de proyectos */
+.card {
+    background-color: #FAFAFA; /* Color suave para la tarjeta */
+    border: none; /* Sin borde para un look minimalista */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #333; /* Color más oscuro para el texto */
+}
+
+.card-text {
+    color: #666; /* Color gris para el texto de la descripción */
+}
+
+/* Ajustar dimensiones de las imágenes de los proyectos */
+.card-img-top {
+    width: 100%;
+    height: 200px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Ajusta la imagen para llenar el área, manteniendo la proporción */
+}
+
+.btn-github {
+    background-color: #0d3969; /* Color suave para el botón */
+    color: #fff; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    padding: 0.5rem 1rem; /* Espaciado del botón */
+    border-radius: 0.25rem; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.btn-github:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el ratón */
 }
