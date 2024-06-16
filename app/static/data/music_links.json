@@ -16,5 +16,11 @@
         "title": "Cosmic Solitude",
         "description": "Electroacoustic Work made with Supercollider",
         "url": "https://soundcloud.com/lasc95/cosmic-solitude"
+    },
+    {
+        "id":4,
+        "title": "Simplicity of Love",
+        "description": "A romantic piece",
+        "url": "https://soundcloud.com/lasc95/simplicity-of-love"
     }
 ]
