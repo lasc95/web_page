@@ -39,7 +39,6 @@ def blog():
     }
     return render_template('blog.html', posts=paginated_posts, pagination=pagination)
 
-
 @main.route('/post/<int:post_id>')
 def post(post_id):
     posts = load_posts()
@@ -68,7 +67,6 @@ def works():
     }
     return render_template('works.html', projects=paginated_projects, pagination=pagination)
 
-
 @main.route('/contact')
 def contact():
     return render_template('contact.html')
@@ -88,4 +86,3 @@ def music():
         'pages': (total + per_page - 1) // per_page,
     }
     return render_template('music.html', music_links=paginated_music_links, pagination=pagination)
-
