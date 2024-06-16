@@ -1,11 +1,13 @@
 [
-    {
+    {   
+        "id": 1,
         "title": "Simple Neural Network",
         "description": "This is a test",
         "image": "project1.jpg",
         "github_url": "https://github.com/lasc95/2_simple_neural_network_example"
     },
-    {
+    {   
+        "id": 2,
         "title": "Neural Style Transfer Python",
         "description": "My first NST with Python. It has comments for understand",
         "image": "project2.png",

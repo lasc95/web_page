@@ -1,12 +1,20 @@
 [
     {
+        "id": 1,
         "title": "My SoundCloud Track 1",
         "description": "Check out my latest track on SoundCloud.",
         "url": "https://soundcloud.com/lasc95/nostalgia"
     },
     {
+        "id": 2,
         "title": "My YouTube Video 1",
         "description": "Watch my latest music video on YouTube.",
         "url": "https://www.youtube.com/embed/x6WPsdk2LQc?si=ayn7ZRq4-tBkl_mG"
+    },
+    {
+        "id":3,
+        "title": "Cosmic Solitude",
+        "description": "Electroacoustic Work made with Supercollider",
+        "url": "https://soundcloud.com/lasc95/cosmic-solitude"
     }
 ]

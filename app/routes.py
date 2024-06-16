@@ -27,6 +27,7 @@ def index():
 def blog():
     page = request.args.get('page', 1, type=int)
     posts = load_posts()
+    posts.sort(key=lambda x: x['id'], reverse=True)  # Ordenar por id de manera descendente
     per_page = 5
     total = len(posts)
     paginated_posts = posts[(page - 1) * per_page: page * per_page]
@@ -37,6 +38,7 @@ def blog():
         'pages': (total + per_page - 1) // per_page,
     }
     return render_template('blog.html', posts=paginated_posts, pagination=pagination)
+
 
 @main.route('/post/<int:post_id>')
 def post(post_id):
@@ -53,17 +55,19 @@ def post(post_id):
 def works():
     with open(os.path.join('app', 'static', 'data', 'projects_data_works.json')) as file:
         projects = json.load(file)
+    projects.sort(key=lambda x: x['id'], reverse=True)  # Ordenar por id de manera descendente
     page = request.args.get('page', 1, type=int)
     per_page = 6  # number of projects per page
     total = len(projects)
-    projects = projects[(page - 1) * per_page: page * per_page]
+    paginated_projects = projects[(page - 1) * per_page: page * per_page]
     pagination = {
         'total': total,
         'page': page,
         'per_page': per_page,
         'pages': (total + per_page - 1) // per_page,  # Número total de páginas
     }
-    return render_template('works.html', projects=projects, pagination=pagination)
+    return render_template('works.html', projects=paginated_projects, pagination=pagination)
+
 
 @main.route('/contact')
 def contact():
@@ -73,6 +77,7 @@ def contact():
 def music():
     page = request.args.get('page', 1, type=int)
     music_links = load_music_links()
+    music_links.sort(key=lambda x: x['id'], reverse=True)  # Ordenar por id de manera descendente
     per_page = 4
     total = len(music_links)
     paginated_music_links = music_links[(page - 1) * per_page: page * per_page]
@@ -83,3 +88,4 @@ def music():
         'pages': (total + per_page - 1) // per_page,
     }
     return render_template('music.html', music_links=paginated_music_links, pagination=pagination)
+
